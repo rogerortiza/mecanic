@@ -1,0 +1,525 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extraCSS %}
+	<style type="text/css">
+	
+  	.bckGndLanding {
+  		background-image: url('{% static "/images/landingPage/car-repair.jpg" %}') !important;
+  		background-position: top center !important;
+  		min-height: 700px;
+  	}
+		
+    .bckImageRoll {
+      background-image: url('{% static "/images/landingPage/mechanics.jpg" %}') !important;
+      background-position: center !important;
+    }
+
+    .bckImageShop {
+      background-image: url('{% static "/images/landingPage/brake-disc.jpg" %}') !important;
+      background-position: top center !important;
+    }
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-overback {
+      color: white;
+      text-shadow: 1px 1px 5px #000;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .bckGndLanding {
+      	min-height: 350px;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+	</style>
+{% endblock extraCSS %}
+
+{% block content %}
+	
+<!-- Following Menu -->
+<!--<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">Home</a>
+    <a class="item">Encuentra</a>
+    <a class="item">Ubica</a>
+    <a class="item">Negocios</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button login">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button registro">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">Encuentra</a>
+  <a class="item">Ubica</a>
+  <a class="item">Negocios</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+	<div class="ui bckGndLanding vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item">Encuentra</a>
+        <a class="item">Ubica</a>
+        <a class="item">Negocios</a>
+        <div class="right item">
+          <a id="login" class="ui inverted button">Log in</a>
+          <a id="registro" class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container">
+    	<h1 class="ui inverted header"></h1>
+     	<img src="{% static '/images/landingPage/logo.png' %}" alt="Mechanic">
+     	<p></p>
+      	<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">Encuentra los mejores talleres cerca de ti</h3>
+          <p>Con nuestro buscador inteligente podras encontrar los mejores talleres que esten a tu alrededor ya que 
+          	podras usar filtros especializados que se adaptaran a tus necesidades para que de ese modo solo te muestre los talleres que te interesan a ti.</p>
+          <h3 class="ui header">Ubica los Talleres Mecanicos</h3>
+          <p>Con <b>Mecanic</b> tambien podras ubicarlos desde tu posicion actual, en tiempo real y podras saber a que distancia y en cuanto tiempo llegaras a algun de ellos.</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="{% static '/images/landingPage/mapa.JPG' %}" class="ui large bordered rounded image">
+        </div> 
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge primary button">Buscar talleres</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned bckImageRoll row">
+        <div class="column text-overback ">
+          <h3>No quieres ir al taller?</h3>
+          <p>Puedes pedir una cotización a traves de <b>Mecanic</b></p>
+        </div>
+        <div class="column text-overback">
+          <h3>Mejor aun, pide una cita!</h3>
+          <p>
+            Con <b>Mecanic</b> puedes agendar una cita <b>"sin compromiso"</b> con tu taller favorito y asi evitar perder el tiempo esperando a que te atiendan
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Informacíon Especializada</h3>
+      <p>Con <b>Mecanic</b> podras conocer informacíon necesaria que te ayudara a elegir el mejor taller para ti.</p>
+      <div class="ui list">
+		  <div class="item">
+		    <i class="checked calendar icon"></i>
+		    <div class="content">
+		      <a class="header">Horario</a>
+		      <div class="description">Conoce cuando estan disponibles los talleres. <b>Horas y dias de servicio.</b></div>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="car icon"></i>
+		    <div class="content">
+		      <a class="header">Servicio a Domicilio</a>
+		      <div class="description">Identifica cuales talleres pueden ir hasta tu casa para que te hagan un presupuesto o algun servicio. 
+		      	<b>En la comodidad de tu Hogar.</b></div>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="payment icon"></i>
+		    <div class="content">
+		      <a class="header">Tipo de Pago</a>
+		      <div class="description">Te gustara saber de antemano que tipo de pago puedes realizar en algun taller.
+				<b>Pago con Tarjeta de credito, Debito, Solo Efectivo u otros.</b>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="announcement icon"></i>
+		    <div class="content">
+		      <a class="header">Servicios</a>
+		      <div class="description">Al Encontrar un taller podras conocer que servicios ofrecen. 
+		      	<b>Mecanicos, Electricos, Full injection, etc.</b> 
+		      </div>
+		    </div>
+		  </div>
+		  <div class="item">
+		    <i class="star icon"></i>
+		    <div class="content">
+		      <a class="header">Raiting</a>
+		      <div class="description">Podras calificar a los tallers y asi como tambien conocer la calificacion que los demas usuarios le han dado.
+				<b>Talleres con nivel de satisfacción.</b>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+      <!-- <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a> -->
+    </div>
+  </div>
+
+  <div class="ui vertical stripe bckImageShop text-overback segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row centered">
+        <div class="ten wide column">
+          <h3 class="header text-center">Eres dueño de un Taller?</h3>
+          <h1 class='ui header'></h1>
+          <span class="ui teal big label">Incrementa tus ventas</span>
+          <span class="ui blue big label">Administra tu negocio</span>
+          <span class="ui violet big label">Ofrece mejor servicio</span>
+          <h1 class="ui header"></h1>
+          <p>Con <b>Mecanic</b> podras ofrecer tus servicios a mas usuarios, enviar promociones y agendar citas. Tambien podras conocer la carga de trabajo que tengas en el dia a dia y sobre todo ofrecer de una manera facil y practica una mejor atencion a tus clientes.</p>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui green huge button">Registar mi Taller</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contactanos</a>
+            <a href="#" class="item">Ayuda</a>
+            <a href="#" class="item">Soporte</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Servicios</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Talleres</a>
+            <a href="#" class="item">Ayuda</a>
+            <a href="#" class="item">How To Access</a>
+            <a href="#" class="item">Favorite X-Men</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Mecanic</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui small first coupled modal">
+  <i class="close icon"></i>
+  <div class="ui teal header">
+    <h2 class="text-center">Login</h2>
+  </div>
+  <div class="content">
+    <div class="ui middle aligned center aligned grid">
+      <div class="ten wide column">
+        <form class="ui small form">
+          <div class="ui basic segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="mail icon"></i>
+                <input type="text" name="email" placeholder="E-mail address">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="ui fluid large green submit button">Login</div>
+          </div>
+
+          <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+          No tienes una Cuenta? <a href="#" class="button registro">Registar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- <div class="actions">
+    <div class="ui cancel button">Cancel</div>
+    <div class="ui approve green button">Entrar</div>
+  </div> -->
+</div>
+
+<div class="ui small second coupled modal">
+  <i class="close icon"></i>
+  <div class="ui teal header">
+    <h2 class="text-center">Registrarse</h2>
+  </div>
+  <div class="content">
+    <div class="ui middle aligned center aligned grid">
+      <div class="ten wide column">
+        <form class="ui small form">
+          <div class="ui basic segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" placeholder="Username">
+              </div>
+            </div>
+             <div class="field">
+              <div class="ui left icon input">
+                <i class="mail icon"></i>
+                <input type="text" name="email" placeholder="E-mail address">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon"></i>
+                <input type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="ui fluid large green submit button">Registrar</div>
+          </div>
+
+          <div class="ui error message"></div>
+
+        </form>
+
+        <div class="ui message">
+          Ya tienes una Cuenta? <a href="#" class="button login">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- <div class="actions">
+    <div class="ui cancel button">Cancel</div>
+    <div class="ui approve green button">Entrar</div>
+  </div> -->
+</div>
+
+{% endblock content %}
+
+{% block extraJS %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // fix menu when passed
+      $('.masthead').visibility({
+        once: false,
+        onBottomPassed: function() {
+          $('.fixed.menu').transition('fade in');
+        },
+        onBottomPassedReverse: function() {
+          $('.fixed.menu').transition('fade out');
+        }
+      });
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar').sidebar('attach events', '.toc.item');
+
+      $('.coupled.modal').modal({
+        allowMultiple: false
+      });
+
+      // show Login
+      document.querySelector('#login').addEventListener('click',function() {
+        showLoginModal()
+      });
+
+       // show Registro
+      document.querySelector('#registro').addEventListener('click',function() {
+        showRegistroModal()
+      });
+
+      function showLoginModal() {
+        // show first now
+        $('.ui.first.modal')
+          .modal({
+            closable : false,
+            blurring : true, 
+            onVisible : function() {
+              document.querySelector('.button.registro').addEventListener('click', function() {
+                showRegistroModal();
+                return false;
+              });
+              return false;
+            }
+           /* onDeny    : function(){
+              window.alert('Wait not yet!');
+              return false;
+            },
+            onApprove : function() {
+              window.alert('Approved!');
+            }*/
+          })
+          .modal('setting', 'transition', 'horizontal flip')
+          .modal('show');
+      }
+
+      function showRegistroModal() {
+        // show first now
+        $('.ui.second.modal')
+          .modal({
+            closable : false,
+            blurring : true, 
+            onShow : function() {
+              document.querySelector('.button.login').addEventListener('click', function() {
+                showLoginModal();
+                return false;
+              });
+              return false;
+            }
+          })
+          .modal('setting', 'transition', 'horizontal flip')
+          .modal('show');
+      }
+
+      /*document.querySelector('#registro').addEventListener('click',function() {
+        $('.coupled.modal')
+          .modal({
+            allowMultiple: false
+          });
+        // attach events to buttons
+        $('.ui.first.modal')
+          .modal('setting', 'transition', 'horizontal flip')
+          .modal('attach events', '.second.modal .button');
+        // show first now
+        $('.ui.second.modal')
+          .modal({
+            closable : false,
+            blurring : true, 
+           /* onDeny    : function(){
+              window.alert('Wait not yet!');
+              return false;
+            },
+            onApprove : function() {
+              window.alert('Approved!');
+            }*/ /*
+          })
+          .modal('setting', 'transition', 'horizontal flip')
+          .modal('show');
+      })*/
+		});
+	</script>
+{% endblock extraJS %}
+	
+
+	

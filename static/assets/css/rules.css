@@ -1,0 +1,32 @@
+/*******************************
+            Button
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/* Button */
+@verticalMargin: 0em;
+@horizontalMargin: 0.25em;
+@backgroundColor: #E0E1E2;
+@backgroundImage: none;
+@background: @backgroundColor @backgroundImage;
+@lineHeight: 1em;
+
+/* Button defaults to using same height as input globally */
+@verticalPadding: @inputVerticalPadding;
+@horizontalPadding: 1.5em;
+
+/* Text */
+@textTransform: none;
+@tapColor: transparent;
+@fontFamily: @pageFont;
+@fontWeight: bold;
+@textColor: rgba(0, 0, 0, 0.6);
+@textShadow: none;
+@invertedTextShadow: @textShadow;
+@borderRadius: @defaultBorderRadius;
+@verticalAlign: baseline;
+
+/* Internal Shadow */
