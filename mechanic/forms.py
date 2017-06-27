@@ -15,9 +15,19 @@ class LoginForm(forms.Form):
 		self.fields['password'].widget.attrs.update( {'placeholder' : 'Contraseña' } )
 
 class RegisterForm(forms.ModelForm):
-	username = forms.CharField(max_length = 20, required = True)
-	password = forms.CharField(max_length = 20, required = True, widget = forms.PasswordInput(),  validators = [must_be_gt])
-	email = forms.CharField(required = True)
+	username = forms.CharField(max_length = 20, required = True,  error_messages = {
+			"invalid" : "El usuario no es valido",
+			"unique" : "Este usuario ya existe",
+			"required" : "El username es requerido"
+		})
+	password = forms.CharField(max_length = 20, required = True, widget = forms.PasswordInput(),  validators = [must_be_gt],
+		 error_messages = {
+			"required" : "La contraseña es requerida"
+		})
+	email = forms.CharField(required = True,  error_messages = {
+			"required" : "El Email es requerido",
+			"invalid" : "El email es incorrecto"
+		})
 
 	def __init__(self, *args, **kwargs):
 		super(RegisterForm, self).__init__(*args, **kwargs)

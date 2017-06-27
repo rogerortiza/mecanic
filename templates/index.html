@@ -411,10 +411,11 @@
                         <div class="ui left icon input">
                             <i class="user icon"></i>
                             {{ field }}
-                            {% if field.errors %}
+                        </div>
+                        <div class="ui red mini message">
+                          {% if field.errors %}
                                 {{ field.errors }}
                             {% endif %}
-                            <!--<input type="text" name="email" placeholder="E-mail address">-->
                         </div>
                     </div>
                 {% elif field.name == "email" %}
@@ -422,10 +423,11 @@
                         <div class="ui left icon input">
                             <i class="mail icon"></i>
                             {{ field }}
-                            {% if field.errors %}
+                        </div>
+                        <div class="ui red mini message">
+                          {% if field.errors %}
                                 {{ field.errors }}
                             {% endif %}
-                            <!--<input type="text" name="email" placeholder="E-mail address">-->
                         </div>
                     </div>
                 {% elif field.name == "password" %}
@@ -433,10 +435,11 @@
                         <div class="ui left icon input">
                             <i class="lock icon"></i>
                             {{ field }}
-                            {% if field.errors %}
+                        </div>
+                        <div class="ui red mini message">
+                          {% if field.errors %}
                                 {{ field.errors }}
                             {% endif %}
-                            <!--<input type="password" name="password" placeholder="Password">-->
                         </div>
                     </div>
                 {% endif %}
