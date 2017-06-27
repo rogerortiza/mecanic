@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import landingPage, home
+from .views import landingPage, home, logout
 
 urlpatterns = [
-	url(r'^$', landingPage, name='landing-page'),
+	url(r'^$', landingPage, name='landing_page'),
 	url(r'^dashboard/', home, name='home'),
+    url(r'^logout/', logout, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]

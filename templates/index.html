@@ -334,27 +334,47 @@
     <h2 class="text-center">Login</h2>
   </div>
   <div class="content">
+  {% if message_login %}
+      <div class="ui negative message">
+        <i class="close icon"> </i>
+        <div class="header">{{ message_login }} </div>
+      </div>
+  {% endif %}
     <div class="ui middle aligned center aligned grid">
-      <div class="ten wide column">
-        <form class="ui small form">
-          <div class="ui basic segment">
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="mail icon"></i>
-                <input type="text" name="email" placeholder="E-mail address">
-              </div>
+        <div class="ten wide column">
+            <form method="post" action="#" name="form_login" class="ui small form">
+            {% csrf_token %}
+            <div class="ui basic segment">
+            {% for field in form_login %}
+                {% if field.label == "Username" %}
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            {{ field }}
+                            {% if field.errors %}
+                                {{ field.errors }}
+                            {% endif %}
+                            <!--<input type="text" name="email" placeholder="E-mail address">-->
+                        </div>
+                    </div>
+                {% elif field.label == "Password" %}
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            {{ field }}
+                            {% if field.errors %}
+                                {{ field.errors }}
+                            {% endif %}
+                            <!--<input type="password" name="password" placeholder="Password">-->
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <input  class="ui fluid large green submit button" type="submit" name="entrar" value="Login">
+                <!--<div class="ui fluid large green submit button">Login</div>-->
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon"></i>
-                <input type="password" name="password" placeholder="Password">
-              </div>
-            </div>
-            <div class="ui fluid large green submit button">Login</div>
-          </div>
 
-          <div class="ui error message"></div>
-
+            <div class="ui error message"></div>
         </form>
 
         <div class="ui message">
@@ -374,34 +394,58 @@
   <div class="ui teal header">
     <h2 class="text-center">Registrarse</h2>
   </div>
-  <div class="content">
+    <div class="content">
+        {% if message_register %}
+      <div class="ui negative message">
+        <i class="close icon"> </i>
+        <div class="header">{{ message_register }} </div>
+      </div>
+    {% endif %}
     <div class="ui middle aligned center aligned grid">
-      <div class="ten wide column">
-        <form class="ui small form">
-          <div class="ui basic segment">
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="user icon"></i>
-                <input type="text" name="username" placeholder="Username">
-              </div>
+        <div class="ten wide column">
+          <form method="post" action="#" class="ui small form">{% csrf_token %}
+              <div class="ui basic segment">
+            {% for field in form_register %}
+                {% if field.name == "username" %}
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            {{ field }}
+                            {% if field.errors %}
+                                {{ field.errors }}
+                            {% endif %}
+                            <!--<input type="text" name="email" placeholder="E-mail address">-->
+                        </div>
+                    </div>
+                {% elif field.name == "email" %}
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            {{ field }}
+                            {% if field.errors %}
+                                {{ field.errors }}
+                            {% endif %}
+                            <!--<input type="text" name="email" placeholder="E-mail address">-->
+                        </div>
+                    </div>
+                {% elif field.name == "password" %}
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            {{ field }}
+                            {% if field.errors %}
+                                {{ field.errors }}
+                            {% endif %}
+                            <!--<input type="password" name="password" placeholder="Password">-->
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <input  class="ui fluid large green submit button" type="submit" name="entrar" value="Signup">
+                <!--<div class="ui fluid large green submit button">Login</div>-->
             </div>
-             <div class="field">
-              <div class="ui left icon input">
-                <i class="mail icon"></i>
-                <input type="text" name="email" placeholder="E-mail address">
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon"></i>
-                <input type="password" name="password" placeholder="Password">
-              </div>
-            </div>
-            <div class="ui fluid large green submit button">Registrar</div>
-          </div>
 
-          <div class="ui error message"></div>
-
+            <div class="ui error message"></div>
         </form>
 
         <div class="ui message">
@@ -421,7 +465,7 @@
 {% block extraJS %}
   <script type="text/javascript">
     $(document).ready(function() {
-      // fix menu when passed
+      // Fix menu when passed
       $('.masthead').visibility({
         once: false,
         onBottomPassed: function() {
@@ -431,20 +475,22 @@
           $('.fixed.menu').transition('fade out');
         }
       });
-
-      // create sidebar and attach to menu open
+      // Show error message intop Login
+      $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');
+      });
+      // Create sidebar and attach to menu open
       $('.ui.sidebar').sidebar('attach events', '.toc.item');
-
+      // Couple modals
       $('.coupled.modal').modal({
         allowMultiple: false
       });
-
-      // show Login
+      // Show Login
       document.querySelector('#login').addEventListener('click',function() {
         showLoginModal()
       });
 
-       // show Registro
+       // Show Registro
       document.querySelector('#registro').addEventListener('click',function() {
         showRegistroModal()
       });
